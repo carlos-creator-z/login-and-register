@@ -172,14 +172,13 @@ input::placeholder {
     box-shadow: 0 1px 4px rgba(0,0,0,0.2);
 }
 
-.teacher-checkbox:checked + .teacher-toggle-custom {
+.teacher-checkbox:checked ~ .teacher-toggle-wrapper .teacher-toggle-custom {
     background-color: #00897b;
 }
 
-.teacher-checkbox:checked + .teacher-toggle-custom::after {
+.teacher-checkbox:checked ~ .teacher-toggle-wrapper .teacher-toggle-custom::after {
     transform: translateX(18px);
 }
-
 .teacher-toggle-text {
     color: #00695c;
     font-weight: 700;
