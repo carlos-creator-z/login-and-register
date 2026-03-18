@@ -1,0 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.auth-container {
+    position: relative;
+    width: 100%;
+}
+
+.form-section {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 100, 100, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.form-section.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    top: auto;
+    left: auto;
+}
+
+.form-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form-header h1 {
+    color: #004d4d;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.field-group {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    color: #00796b;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 12px 15px;
+    border: 2px solid #b2dfdb;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background-color: #f0f8f7;
+    color: #004d4d;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #00897b;
+    background-color: #ffffff;
+    box-shadow: 0 0 8px rgba(0, 137, 123, 0.2);
+}
+
+input::placeholder {
+    color: #a1d9d3;
+}
+
+/* ===== CAMPO DE CÓDIGO OCULTO (animación) ===== */
+.teacher-field {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease, margin 0.3s ease;
+    margin-top: 0;
+}
+
+.teacher-field.visible {
+    max-height: 120px;
+    opacity: 1;
+    margin-top: 0;
+}
+
+/* ===== BLOQUE TOGGLE PROFESOR ===== */
+.teacher-toggle-wrapper {
+    background: linear-gradient(135deg, #e0f7f4 0%, #f0fffe 100%);
+    border: 1.5px dashed #80cbc4;
+    border-radius: 10px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.teacher-toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    color: #00695c !important;
+    font-weight: 600 !important;
+    font-size: 14px;
+}
+
+/* Oculta el checkbox nativo */
+.teacher-checkbox {
+    display: none;
+}
+
+/* Toggle visual personalizado */
+.teacher-toggle-custom {
+    width: 40px;
+    height: 22px;
+    background-color: #b2dfdb;
+    border-radius: 999px;
+    position: relative;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.teacher-toggle-custom::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.teacher-checkbox:checked + .teacher-toggle-custom {
+    background-color: #00897b;
+}
+
+.teacher-checkbox:checked + .teacher-toggle-custom::after {
+    transform: translateX(18px);
+}
+
+.teacher-toggle-text {
+    color: #00695c;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+}
+
+/* ===== FEEDBACK VISUAL: código docente ===== */
+input.code-valid {
+    border-color: #00897b !important;
+    background-color: #e8f5e9 !important;
+    box-shadow: 0 0 8px rgba(0, 137, 123, 0.25);
+}
+
+input.code-invalid {
+    border-color: #e53935 !important;
+    background-color: #fff5f5 !important;
+    box-shadow: 0 0 8px rgba(229, 57, 53, 0.2);
+}
+
+.field-hint {
+    font-size: 12px;
+    color: #80cbc4;
+    font-style: italic;
+    margin-top: 2px;
+    transition: color 0.3s ease;
+}
+
+.field-hint.hint-valid {
+    color: #00796b;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.field-hint.hint-invalid {
+    color: #e53935;
+    font-style: normal;
+    font-weight: 600;
+}
+
+/* ===== BOTÓN ===== */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #00897b 0%, #00695c 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 137, 123, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* ===== FOOTER ===== */
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-footer nav {
+    display: block;
+}
+
+.form-footer p {
+    color: #00796b;
+    font-size: 14px;
+}
+
+.form-footer a {
+    color: #00897b;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.form-footer a:hover {
+    color: #004d4d;
+    text-decoration: underline;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .form-section {
+        padding: 30px 20px;
+    }
+
+    .form-header h1 {
+        font-size: 24px;
+    }
+
+    .field {
+        gap: 12px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .teacher-toggle-wrapper {
+        padding: 10px 14px;
+    }
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página de autenticación con opciones de login y registro">
+    <title>Login & Register - Autenticación</title>
+    <link rel="stylesheet" href="STYLES.CSS">
+</head>
+<body>
+    <main class="auth-wrapper">
+        <article class="auth-container">
+
+            <!-- ========== FORMULARIO LOGIN ========== -->
+            <section class="form-section login active" id="login" aria-labelledby="login-title">
+                <header class="form-header">
+                    <h1 id="login-title">Iniciar Sesión</h1>
+                </header>
+
+                <form class="form" id="loginForm" method="post" novalidate>
+                    <fieldset class="field-group">
+                        <div class="field">
+                            <label for="email-login">Correo Electrónico</label>
+                            <input
+                                type="email"
+                                id="email-login"
+                                name="email"
+                                placeholder="tu@correo.com"
+                                required
+                                autocomplete="email"
+                                aria-label="Ingresa tu correo electrónico"
+                            >
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="field-group">
+                        <div class="field">
+                            <label for="password-login">Contraseña</label>
+                            <input
+                                type="password"
+                                id="password-login"
+                                name="password"
+                                placeholder="Ingresa tu contraseña"
+                                required
+                                autocomplete="current-password"
+                                aria-label="Ingresa tu contraseña"
+                            >
+                        </div>
+                    </fieldset>
+
+                   
+                    <div class="teacher-toggle-wrapper">
+                        <label class="teacher-toggle-label">
+                            <input
+                                type="checkbox"
+                                id="isTeacher-login"
+                                name="isTeacher"
+                                class="teacher-checkbox"
+                                aria-label="Marcar si eres profesor"
+                            >
+                            <span class="teacher-toggle-custom"></span>
+                            <span class="teacher-toggle-text">Soy Profesor</span>
+                        </label>
+                    </div>
+
+                    <fieldset class="field-group teacher-field" id="teacher-field-login" hidden>
+                        <div class="field">
+                            <label for="teacher-code-login">Código del Profesor</label>
+                            <input
+                                type="text"
+                                id="teacher-code-login"
+                                name="teacherCode"
+                                placeholder="Ingresa tu código docente"
+                                autocomplete="off"
+                                aria-label="Ingresa tu código de profesor"
+                            >
+                            <span class="field-hint" id="code-hint-login">Este código es asignado por la institución educativa.</span>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="btn" aria-label="Enviar formulario de inicio de sesión">Iniciar Sesión</button>
+                </form>
+
+                <footer class="form-footer">
+                    <nav>
+                        <p>¿No tienes cuenta? <a href="#register" id="goToRegister" title="Ir al formulario de registro">Regístrate aquí</a></p>
+                    </nav>
+                </footer>
+            </section>
+
+            <!-- ========== FORMULARIO REGISTRO ========== -->
+            <section class="form-section register" id="register" aria-labelledby="register-title">
+                <header class="form-header">
+                    <h1 id="register-title">Crear Cuenta</h1>
+                </header>
+
+                <form class="form" id="registerForm" method="post" novalidate>
+                    <fieldset class="field-group">
+                        <div class="field">
+                            <label for="name-register">Nombre Completo</label>
+                            <input
+                                type="text"
+                                id="name-register"
+                                name="name"
+                                placeholder="Tu nombre"
+                                required
+                                autocomplete="name"
+                                aria-label="Ingresa tu nombre completo"
+                            >
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="field-group">
+                        <div class="field">
+                            <label for="email-register">Correo Electrónico</label>
+                            <input
+                                type="email"
+                                id="email-register"
+                                name="email"
+                                placeholder="tu@correo.com"
+                                required
+                                autocomplete="email"
+                                aria-label="Ingresa tu correo electrónico"
+                            >
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="field-group">
+                        <div class="field">
+                            <label for="password-register">Contraseña</label>
+                            <input
+                                type="password"
+                                id="password-register"
+                                name="password"
+                                placeholder="Crea una contraseña"
+                                required
+                                autocomplete="new-password"
+                                aria-label="Crea una contraseña"
+                            >
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="field-group">
+                        <div class="field">
+                            <label for="confirm-password">Confirmar Contraseña</label>
+                            <input
+                                type="password"
+                                id="confirm-password"
+                                name="confirm"
+                                placeholder="Confirma tu contraseña"
+                                required
+                                autocomplete="new-password"
+                                aria-label="Confirma tu contraseña"
+                            >
+                        </div>
+                    </fieldset>
+
+                    <
+                    <div class="teacher-toggle-wrapper">
+                        <label class="teacher-toggle-label">
+                            <input
+                                type="checkbox"
+                                id="isTeacher-register"
+                                name="isTeacher"
+                                class="teacher-checkbox"
+                                aria-label="Marcar si eres profesor"
+                            >
+                            <span class="teacher-toggle-custom"></span>
+                            <span class="teacher-toggle-text">Soy Profesor</span>
+                        </label>
+                    </div>
+
+                    <fieldset class="field-group teacher-field" id="teacher-field-register" hidden>
+                        <div class="field">
+                            <label for="teacher-code-register">Código del Profesor</label>
+                            <input
+                                type="text"
+                                id="teacher-code-register"
+                                name="teacherCode"
+                                placeholder="Ingresa tu código docente"
+                                autocomplete="off"
+                                aria-label="Ingresa tu código de profesor"
+                            >
+                            <span class="field-hint" id="code-hint-register">Este código es asignado por la institución educativa.</span>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="btn" aria-label="Enviar formulario de registro">Registrarse</button>
+                </form>
+
+                <footer class="form-footer">
+                    <nav>
+                        <p>¿Ya tienes cuenta? <a href="#login" id="goToLogin" title="Ir al formulario de inicio de sesión">Inicia sesión aquí</a></p>
+                    </nav>
+                </footer>
+            </section>
+
+        </article>
+    </main>
+
+    <script src="SCRIPTS.JS"></script>
+</body>
+</html>
